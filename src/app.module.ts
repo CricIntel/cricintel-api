@@ -9,10 +9,8 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    MongooseModule.forRoot(process.env.MONGO_URI || ''),
     MatchesModule,
-    MongooseModule.forRoot(
-      `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cricintelcluster.pz2zlat.mongodb.net/cricintel`
-    ),
     PlayerModule,
   ]
 })
